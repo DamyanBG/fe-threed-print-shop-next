@@ -1,95 +1,72 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
+
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
+  const handleOnFormSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+    console.log(e)
+  }
+
+ 
+
+
+  const [pathIndex, setPathIndex] = useState(0)
+  const imagesPaths = ["/images/img1.jpg", "/images/img2.jpg", "/images/img3.jpg"]
+  const imagePath = imagesPaths[pathIndex]
+
+
+
+  useEffect(() => {
+    console.log("triggered");
+
+    const changeBackgroundImage = () => {
+      console.log("triggered the change")
+      if (pathIndex === imagesPaths.length - 1) {
+        setPathIndex(0);
+      } else {
+        setPathIndex((prev) => prev + 1);
+      }
+    };
+  
+    const timeoutId = setTimeout(changeBackgroundImage, 7000);
+  
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  
+  }, [pathIndex, imagesPaths.length]);
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <section className='main-section'>
+      <section className="welcome-section">
+        <article className="image-swapper">
+          <Image
+            key={imagePath}
+            src={imagePath}
+            alt="My Image"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            priority
+          />
+        </article>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <article className="welcome-info">
+          <article className="welcome-info-heading">
+            <h1>
+              Онлайн
+              <br />
+              Услуга за 3Д принтиране 
+            </h1>
+          </article>
+          <article className="welcome-info-text">
+            <p>Това е Вашето решение за иновативната технология 3Д принтиране. С няколко щракания можете да получите вашите части.</p>
+          </article>
+        </article>
+      </section>
+    </section>
   )
 }
