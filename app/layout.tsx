@@ -46,11 +46,13 @@ function Layout(props: LayoutProps) {
                       <li>
                           <Link href="/samples" aria-label="sample products link">Примерни продукти</Link>
                       </li>
-                      <li>
-                          <Link href="/quoting" aria-label="create quote link">Направи запитване</Link>
-                      </li>
+                      
                       <li>
                           <Link href="/contact" aria-label="contact page link">Контакт</Link>
+                      </li>
+
+                      <li className="quote-header-button">
+                          <Link href="/quoting" aria-label="create quote link">Направи запитване</Link>
                       </li>
                   </ul>
               </header>

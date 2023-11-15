@@ -1,0 +1,50 @@
+.mainSection {
+    text-align: center;
+    padding-top: 64px;
+}
+
+.mainSection > h2 {
+    font-weight: normal;
+    font-size: 40px;
+}
+
+.mainSection > form {
+    min-width: 400px;
+    font-size: 20px;
+    background-color: #fff;
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    padding: 32px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    line-height: 120%;
+}
+
+.mainSection > form > article {
+    margin: 16px;
+}
+
+.mainSection > form > article input {
+    padding: 6px 12px;
+}
+
+.mainSection > form > article textarea {
+    padding: 6px 12px;
+}
+
+.mainSection > form button {
+    width: 100px;
+    padding: 6px 20px;
+    background: lightgray;
+    border: 3px solid gray;
+    border-radius: 10px;
+}
+
+.mainSection > form button:hover {
+    background: rgba(211, 211, 211, 0.449);
+}
+
+.mainSection > form button:active {
+    background: rgba(102, 99, 99, 0.449)
+}
